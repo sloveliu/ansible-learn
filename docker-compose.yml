@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  client-1:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+#    restart: always
+    container_name: client-1
+    hostname: client-1
+    ports:
+      - 221:22
+    command: >
+      bash -c "service ssh start && tail -f /dev/null"
+  client-2:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+#    restart: always
+    container_name: client-2
+    hostname: client-2
+    ports:
+      - 222:22
+    command: >
+      bash -c "service ssh start && tail -f /dev/null"
