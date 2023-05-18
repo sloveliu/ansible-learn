@@ -1,29 +1,3 @@
-## 來源
-<https://ithelp.ithome.com.tw/users/20031776/ironman/1022>
-
-### 安裝 ansible
-
-```
-sudo pip3 install ansible
-```
-
-測試
-
-```shell
-ansible all -m command -a "echo Hello World"
-```
-
-噴錯
-
-```text
-to use the 'ssh' connection type with passwords or pkcs11_provider, you must install the sshpass program
-```
-
-- 建立需要的檔案
-
-```shell
-vim sshpass.rb
-
 require 'formula'
 
 class Sshpass < Formula
@@ -41,10 +15,3 @@ class Sshpass < Formula
     system "sshpass"
   end
 end
-```
-
-- 安裝 sshpass
-
-```shell
-brew install sshpass.rb
-```

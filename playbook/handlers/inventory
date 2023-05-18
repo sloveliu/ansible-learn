@@ -1,0 +1,6 @@
+ansible-client-1 ansible_ssh_host=127.0.0.1 ansible_ssh_port=221 ansible_ssh_pass=docker
+ansible-client-2 ansible_ssh_host=127.0.0.1 ansible_ssh_port=222 ansible_ssh_pass=docker
+
+[client]
+ansible-client-1
+ansible-client-2

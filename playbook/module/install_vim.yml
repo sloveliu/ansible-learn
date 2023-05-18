@@ -1,0 +1,14 @@
+- name: Setup the vim 
+  hosts: all
+  become: true
+  tasks:
+
+    # Debian, Ubuntu.
+    - name: install apt packages
+      apt: name=vim state=present
+      when: ansible_pkg_mgr == "apt"
+
+    # CentOS.
+    - name: install yum packages
+      yum: name=vim-minimal state=present
+      when: ansible_pkg_mgr == "yum"
