@@ -1,0 +1,25 @@
+- name: Play the template module
+  hosts: localhost
+  vars:
+    env: 'development'
+
+  vars_files:
+    - vars/{{ env }}.yml
+
+  tasks:
+    -
+    - name: Send notify to Telegram
+      community.general.telegram:
+        token: '{{ token }}'
+        api_method: 'SendMessage' # 預設就是 SendMessage 可不填
+        api_args:
+          chat_id: '{{ chat_id }}'
+          parse_mode: 'plain'
+          text: 'https://docs.ansible.com/ansible/latest/collections/community/general/telegram_module.html'
+          disable_web_page_preview: true
+          disable_notification: true
+      register: result
+
+    - name: print stdout
+      debug:
+        msg: '{{ result }}'
